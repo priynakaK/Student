@@ -15,49 +15,11 @@ import { StudentserviceService } from '../studentservice.service';
 })
 export class StudentComponent implements OnInit {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
-  s1: Studentinterface[] = [
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 1,
-      name: 'Priyanka',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 2,
-      name: 'Vinay',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 3,
-      name: 'Gururaj',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 4,
-      name: 'Yashraj',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 1,
-      name: 'Priyanka',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 2,
-      name: 'Vinay',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 3,
-      name: 'Gururaj',
-    },
-    {
-      photo: `${this.baseUrl}/example-house.jpg`,
-      roll: 4,
-      name: 'Yashraj',
-    },
-  ];
-  constructor() {}
+  s1: Studentinterface[] = [];
+  serv: StudentserviceService = inject(StudentserviceService);
+  constructor() {
+    this.s1 = this.serv.getAllStudents();
+  }
 
   ngOnInit() {}
 }

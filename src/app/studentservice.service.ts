@@ -51,7 +51,7 @@ export class StudentserviceService {
     return this.s1;
   }
   getStudentByRoll(roll: number): Studentinterface | undefined {
-    return this.s1.find(s1 => s1.roll === roll);
+    return this.s1.find((s1) => s1.roll === roll);
   }
   constructor() {}
 }
