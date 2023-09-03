@@ -4,7 +4,7 @@ import { Studentinterface } from './student/studentinterface';
 @Injectable()
 export class StudentserviceService {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
-  s1:Studentinterface[] = [
+  s1: Studentinterface[] = [
     {
       photo: `${this.baseUrl}/example-house.jpg`,
       roll: 1,
@@ -44,13 +44,14 @@ export class StudentserviceService {
       photo: `${this.baseUrl}/example-house.jpg`,
       roll: 4,
       name: 'Yashraj',
-    }
+    },
   ];
+
   getAllStudents(): Studentinterface[] {
-    return this.Studentinterface;
+    return this.s1;
   }
   getStudentByRoll(roll: number): Studentinterface | undefined {
-    return this.Studentinterface.find(this.Studentinterface=>this.Studentinterface.roll ===roll);
+    return this.s1.find(s1 => s1.roll === roll);
   }
   constructor() {}
 }
