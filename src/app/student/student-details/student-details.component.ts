@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Studentinterface } from '../studentinterface';
 
 @Component({
@@ -10,6 +10,7 @@ import { Studentinterface } from '../studentinterface';
   imports: [CommonModule],
 })
 export class StudentDetailsComponent implements OnInit {
+  @Input() s1!: Studentinterface;
   constructor() {}
 
   ngOnInit() {}
