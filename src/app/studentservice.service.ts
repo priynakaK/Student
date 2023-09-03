@@ -1,21 +1,10 @@
-import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { StudentDetailsComponent } from './student-details/student-details.component';
-import { Studentinterface } from './studentinterface';
-import { inject } from '@angular/core';
-import { StudentserviceService } from '../studentservice.service';
+import { Injectable } from '@angular/core';
+import { Studentinterface } from './student/studentinterface';
 
-@Component({
-  standalone: true,
-  selector: 'app-student',
-  templateUrl: './student.component.html',
-  styleUrls: ['./student.component.css'],
-  imports: [StudentDetailsComponent, FormsModule, CommonModule],
-})
-export class StudentComponent implements OnInit {
+@Injectable()
+export class StudentserviceService {
   readonly baseUrl = 'https://angular.io/assets/images/tutorials/faa';
-  s1: Studentinterface[] = [
+  s1:Studentinterface[] = [
     {
       photo: `${this.baseUrl}/example-house.jpg`,
       roll: 1,
@@ -55,9 +44,13 @@ export class StudentComponent implements OnInit {
       photo: `${this.baseUrl}/example-house.jpg`,
       roll: 4,
       name: 'Yashraj',
-    },
+    }
   ];
+  getAllStudents(): Studentinterface[] {
+    return this.Studentinterface;
+  }
+  getStudentByRoll(roll: number): Studentinterface | undefined {
+    return this.Studentinterface.find(this.Studentinterface=>this.Studentinterface.roll ===roll);
+  }
   constructor() {}
-
-  ngOnInit() {}
 }

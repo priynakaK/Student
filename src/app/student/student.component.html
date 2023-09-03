@@ -1,8 +1,5 @@
 <div class="container">
   <p>Students</p>
   <p>Results</p>
-  <app-student-details
-    *ngFor="let s1 of Studentinterface"
-    [s1]="s1"
-  ></app-student-details>
+  <app-student-details *ngFor="let i of s1" [s1]="i"></app-student-details>
 </div>
